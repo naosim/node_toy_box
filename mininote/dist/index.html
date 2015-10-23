@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<meta charset="utf-8" />
+<table border="1">
+  <tr id="tablerow">
+    <td id="inputCell"><input type="text"><button>add</button></td>
+  </tr>
+</table>
+<script>
+function deleteNote(v) {
+  v.parentNode.removeChild(v);
+}
+document.querySelector('button').addEventListener('click', () => {
+  var row = document.querySelector('#tablerow');
+  var inputCell = document.querySelector('#inputCell');
+  var elm = document.createElement('td');
+  elm.innerHTML = document.querySelector('input').value + '\n<button class="delete" onClick="deleteNote(this.parentNode)">削除</button>';
+  row.insertBefore(elm, inputCell);
+});
+</script>
